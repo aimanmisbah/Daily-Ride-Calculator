@@ -146,27 +146,27 @@ c1, c2, c3, c4, c5 = st.columns(5)
 
 c1.metric(
     "Total Deduction",
-    f"Rs{total_deduction:,.2f}"
+    f"Rs {total_deduction:,.2f}"
 )
 
 c2.metric(
     "Net Amount",
-    f"Rs{net_amount:,.2f}"
+    f"Rs {net_amount:,.2f}"
 )
 
 c3.metric(
     "Rate / Km",
-    f"Rs{rate_per_km:,.2f}"
+    f"Rs {rate_per_km:,.2f}"
 )
 
 c4.metric(
     "Fuel Amount",
-    f"Rs{fuel_amount:,.2f}"
+    f"Rs {fuel_amount:,.2f}"
 )
 
 c5.metric(
     "Saving",
-    f"Rs{saving:,.2f}"
+    f"Rs {saving:,.2f}"
 )
 
 
@@ -389,29 +389,29 @@ if rides:
 
     c3.metric(
         "Total Received",
-        f"Rs{total_received:,.2f}"
+        f"Rs {total_received:,.2f}"
     )
 
     c4.metric(
         "Total Deduction",
-        f"Rs{total_deduction:,.2f}"
+        f"Rs {total_deduction:,.2f}"
     )
 
     c1, c2, c3 = st.columns(3)
 
     c1.metric(
         "Total Net Amount",
-        f"Rs{total_net:,.2f}"
+        f"Rs {total_net:,.2f}"
     )
 
     c2.metric(
         "Total Fuel Amount",
-        f"Rs{total_fuel:,.2f}"
+        f"Rs {total_fuel:,.2f}"
     )
 
     c3.metric(
         "Total Saving",
-        f"Rs{total_saving:,.2f}"
+        f"Rs {total_saving:,.2f}"
     )
 
 
