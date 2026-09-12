@@ -93,7 +93,6 @@ with col3:
     fuel_rate = st.number_input(
         "Fuel Rate",
         min_value=0.0,
-        value=367.75,
         step=0.01
     )
 
