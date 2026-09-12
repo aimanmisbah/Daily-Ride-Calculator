@@ -20,36 +20,331 @@ st.set_page_config(
 # CUSTOM DESIGN
 # =========================================================
 
+# =========================================================
+# CUSTOM DESIGN - 3D MODERN THEME
+# =========================================================
+
 st.markdown(
     """
     <style>
 
+    /* =====================================================
+       GLOBAL
+       ===================================================== */
+
     .stApp {
-        background: #f6f8fb;
+        background:
+            radial-gradient(
+                circle at 10% 10%,
+                rgba(30, 100, 180, 0.18),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 90% 20%,
+                rgba(100, 50, 180, 0.15),
+                transparent 30%
+            ),
+            #07111f;
     }
 
-    .block-container {
-        max-width: 1400px;
+    /* Main content */
+    .main .block-container {
         padding-top: 2rem;
         padding-bottom: 3rem;
+        max-width: 1400px;
     }
+
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
+
+    section[data-testid="stSidebar"] {
+        background:
+            linear-gradient(
+                180deg,
+                #0b1728 0%,
+                #08111f 55%,
+                #050b14 100%
+            );
+
+        border-right: 1px solid rgba(255,255,255,0.08);
+
+        box-shadow:
+            8px 0 30px rgba(0,0,0,0.35);
+    }
+
+    section[data-testid="stSidebar"] .block-container {
+        padding-top: 1.5rem;
+    }
+
+    /* =====================================================
+       HEADINGS
+       ===================================================== */
+
+    h1 {
+        font-size: 3rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -1px;
+        background:
+            linear-gradient(
+                90deg,
+                #ffffff,
+                #70b7ff,
+                #a98bff
+            );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+        font-weight: 750 !important;
+    }
+
+    h3 {
+        font-weight: 700 !important;
+    }
+
+    /* =====================================================
+       METRIC CARDS
+       ===================================================== */
+
+    div[data-testid="stMetric"] {
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.09),
+                rgba(255,255,255,0.025)
+            );
+
+        border: 1px solid rgba(255,255,255,0.10);
+
+        border-radius: 20px;
+
+        padding: 22px;
+
+        min-height: 135px;
+
+        box-shadow:
+            0 10px 25px rgba(0,0,0,0.35),
+            inset 0 1px 1px rgba(255,255,255,0.08);
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    div[data-testid="stMetric"]:hover {
+
+        transform:
+            translateY(-6px)
+            scale(1.015);
+
+        box-shadow:
+            0 18px 40px rgba(0,0,0,0.45),
+            0 0 25px rgba(70,140,255,0.12);
+    }
+
+    div[data-testid="stMetricLabel"] {
+        font-size: 0.9rem !important;
+        color: #9eb1c9 !important;
+        font-weight: 600 !important;
+    }
+
+    div[data-testid="stMetricValue"] {
+        font-size: 2rem !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+    }
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
 
     .stButton > button {
-        border-radius: 10px;
+
+        border: 1px solid rgba(255,255,255,0.10);
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #2478e8,
+                #1554ad
+            );
+
+        color: white;
+
         font-weight: 700;
-        min-height: 42px;
+
+        padding: 0.65rem 1rem;
+
+        box-shadow:
+            0 7px 18px rgba(21,84,173,0.35),
+            inset 0 1px 1px rgba(255,255,255,0.20);
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
     }
 
-    .stTextInput input,
-    .stNumberInput input {
-        border-radius: 9px;
+    .stButton > button:hover {
+
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+            0 12px 28px rgba(21,84,173,0.50);
+
+        border-color:
+            rgba(255,255,255,0.25);
+    }
+
+    /* =====================================================
+       INPUT BOXES
+       ===================================================== */
+
+    input,
+    textarea,
+    div[data-baseweb="select"] > div {
+
+        border-radius: 12px !important;
+
+        background:
+            rgba(255,255,255,0.055) !important;
+
+        border:
+            1px solid rgba(255,255,255,0.10) !important;
+    }
+
+    input:focus,
+    textarea:focus {
+
+        border-color:
+            #3287f5 !important;
+
+        box-shadow:
+            0 0 0 2px rgba(50,135,245,0.15) !important;
+    }
+
+    /* =====================================================
+       DATAFRAME
+       ===================================================== */
+
+    div[data-testid="stDataFrame"] {
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        border:
+            1px solid rgba(255,255,255,0.08);
+
+        box-shadow:
+            0 12px 30px rgba(0,0,0,0.30);
+    }
+
+    /* =====================================================
+       EXPANDERS
+       ===================================================== */
+
+    div[data-testid="stExpander"] {
+
+        border:
+            1px solid rgba(255,255,255,0.08) !important;
+
+        border-radius:
+            16px !important;
+
+        background:
+            rgba(255,255,255,0.035);
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,0.20);
+    }
+
+    /* =====================================================
+       DIVIDERS
+       ===================================================== */
+
+    hr {
+
+        border: none !important;
+
+        height: 1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.18),
+                transparent
+            );
+    }
+
+    /* =====================================================
+       SIDEBAR RADIO
+       ===================================================== */
+
+    section[data-testid="stSidebar"]
+    div[role="radiogroup"] label {
+
+        border-radius: 12px;
+
+        padding: 9px 12px;
+
+        margin: 4px 0;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    section[data-testid="stSidebar"]
+    div[role="radiogroup"] label:hover {
+
+        background:
+            rgba(255,255,255,0.07);
+
+        transform:
+            translateX(3px);
+    }
+
+    /* =====================================================
+       ALERTS
+       ===================================================== */
+
+    div[data-testid="stAlert"] {
+
+        border-radius: 15px !important;
+
+        border:
+            1px solid rgba(255,255,255,0.08) !important;
+
+        box-shadow:
+            0 8px 20px rgba(0,0,0,0.20);
+    }
+
+    /* =====================================================
+       FILE UPLOADER
+       ===================================================== */
+
+    section[data-testid="stFileUploaderDropzone"] {
+
+        border-radius: 16px;
+
+        background:
+            rgba(255,255,255,0.035);
+
+        border:
+            1px dashed rgba(255,255,255,0.18);
     }
 
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # =========================================================
 # SUPABASE
