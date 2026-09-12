@@ -533,13 +533,78 @@ with st.sidebar:
 # HEADER
 # =========================================================
 
+# =========================================================
+# HEADER
+# =========================================================
+
 st.title("🚗 RideLedger")
 
+st.subheader(f"Welcome back, {username} 👋")
+
 st.caption(
-    f"Welcome back, {username}. "
     "Track your rides, earnings and expenses in one place."
 )
 
+st.write("")
+
+
+# =========================================================
+# QUICK OVERVIEW
+# =========================================================
+
+if rides:
+
+    df = pd.DataFrame(rides)
+
+    total_rides = len(df)
+
+    total_distance = df["distance_covered"].sum()
+
+    total_received = df["received_amount"].sum()
+
+    total_net = df["net_amount"].sum()
+
+    total_saving = df["saving"].sum()
+
+    c1, c2, c3, c4 = st.columns(4)
+
+    with c1:
+        st.metric(
+            "🚗 Total Rides",
+            f"{total_rides:,}"
+        )
+
+    with c2:
+        st.metric(
+            "🛣️ Distance",
+            f"{total_distance:,.1f} km"
+        )
+
+    with c3:
+        st.metric(
+            "💰 Earnings",
+            f"Rs {total_received:,.0f}"
+        )
+
+    with c4:
+        st.metric(
+            "📈 Savings",
+            f"Rs {total_saving:,.0f}"
+        )
+
+    st.write("")
+
+    st.info(
+        "💡 Keep adding your rides to build a complete "
+        "picture of your earnings, expenses and savings."
+    )
+
+else:
+
+    st.info(
+        "🚗 Welcome to RideLedger! "
+        "Add your first ride to start tracking your earnings."
+    )
 # =========================================================
 # LOAD RIDES
 # =========================================================
