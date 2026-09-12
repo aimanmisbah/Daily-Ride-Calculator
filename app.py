@@ -376,17 +376,21 @@ if user:
 # SIDEBAR
 # =========================================================
 
+# =========================================================
+# SIDEBAR
+# =========================================================
+
 with st.sidebar:
 
-    st.title("🚗 RideLedger")
+    st.title("🚗")
+    st.caption("RideLedger")
 
     st.divider()
 
     st.write(f"### 👋 Hello, {username}")
 
-    st.caption(
-        user.email if user else ""
-    )
+    if user:
+        st.caption(user.email)
 
     st.divider()
 
@@ -403,11 +407,7 @@ with st.sidebar:
 
     st.divider()
 
-    if st.button(
-        "🚪 Logout",
-        use_container_width=True
-    ):
-
+    if st.button("🚪 Logout", use_container_width=True):
         try:
             supabase.auth.sign_out()
         except Exception:
@@ -420,23 +420,25 @@ with st.sidebar:
 
         st.rerun()
 
-
 # =========================================================
 # HEADER
 # =========================================================
 
+# =========================================================
+# MAIN HEADER
+# =========================================================
+
 st.title("🚗 RideLedger")
 
-st.subheader(
-    f"Welcome back, {username} 👋"
-)
+st.subheader(f"Welcome back, {username} 👋")
+
+st.write("Your driving overview")
 
 st.caption(
-    "Track your rides, earnings and expenses in one place."
+    "Track rides, earnings, expenses and savings — all in one place."
 )
 
-st.write("")
-
+st.divider()
 
 # =========================================================
 # LOAD RIDES
