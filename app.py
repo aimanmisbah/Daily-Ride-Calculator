@@ -21,7 +21,7 @@ st.caption("Enter each ride, save it, and build your daily report.")
 # SUPABASE CONNECTION
 # --------------------------------------------------
 
-SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_URL = st.secrets["https://wsnffbrbvqyhktpoupfy.supabase.co/rest/v1/"]
 SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 
 supabase: Client = create_client(
