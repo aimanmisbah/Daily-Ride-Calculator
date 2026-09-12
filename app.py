@@ -8,8 +8,8 @@ from datetime import date
 # ============================================================
 
 st.set_page_config(
-    page_title="Daily Ride Report Calculator",
-    page_icon="🚕",
+    page_title="Ride Ledger",
+    page_icon="🚗",
     layout="wide"
 )
 
@@ -25,7 +25,7 @@ if "rides" not in st.session_state:
 # TITLE
 # ============================================================
 
-st.title("🚕 Daily Ride Report Calculator")
+st.title("🚗 Ride Ledger")
 st.caption("Enter each ride, save it, and build your daily report.")
 
 
@@ -33,7 +33,7 @@ st.caption("Enter each ride, save it, and build your daily report.")
 # INPUT SECTION
 # ============================================================
 
-st.subheader("🚕 Ride Information")
+st.subheader("🚗 Ride Information")
 
 col1, col2, col3 = st.columns(3)
 
