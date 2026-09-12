@@ -24,7 +24,6 @@ st.markdown(
     """
     <style>
 
-    /* Main background */
     .stApp {
         background: #f6f8fb;
     }
@@ -35,111 +34,12 @@ st.markdown(
         padding-bottom: 3rem;
     }
 
-    /* Header */
-    .hero {
-        background: linear-gradient(
-            135deg,
-            #111827,
-            #1f2937
-        );
-        padding: 32px;
-        border-radius: 22px;
-        margin-bottom: 25px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-
-    .hero-title {
-        color: white;
-        font-size: 40px;
-        font-weight: 800;
-        margin: 0;
-    }
-
-    .hero-text {
-        color: #d1d5db;
-        font-size: 16px;
-        margin-top: 8px;
-    }
-
-    /* Section title */
-    .section-title {
-        font-size: 25px;
-        font-weight: 800;
-        color: #111827;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
-
-    .section-text {
-        color: #6b7280;
-        margin-bottom: 20px;
-    }
-
-    /* Cards */
-    .card {
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 18px;
-        padding: 22px;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.05);
-    }
-
-    .card-label {
-        color: #6b7280;
-        font-size: 13px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .5px;
-    }
-
-    .card-value {
-        color: #111827;
-        font-size: 27px;
-        font-weight: 800;
-        margin-top: 7px;
-    }
-
-    /* Login */
-    .login-container {
-        max-width: 500px;
-        margin: auto;
-        padding-top: 50px;
-    }
-
-    .login-logo {
-        text-align: center;
-        font-size: 60px;
-    }
-
-    .login-title {
-        text-align: center;
-        font-size: 36px;
-        font-weight: 800;
-        color: #111827;
-    }
-
-    .login-subtitle {
-        text-align: center;
-        color: #6b7280;
-        margin-bottom: 30px;
-    }
-
-    /* Footer */
-    .footer {
-        text-align: center;
-        color: #9ca3af;
-        padding-top: 40px;
-        font-size: 13px;
-    }
-
-    /* Buttons */
     .stButton > button {
         border-radius: 10px;
         font-weight: 700;
         min-height: 42px;
     }
 
-    /* Inputs */
     .stTextInput input,
     .stNumberInput input {
         border-radius: 9px;
@@ -216,31 +116,16 @@ if (
 
 if not st.session_state.logged_in:
 
-    st.markdown(
-        '<div class="login-container">',
-        unsafe_allow_html=True
-    )
+    st.title("🚗 RideLedger")
 
-    st.markdown(
-        '<div class="login-logo">🚗</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        '<div class="login-title">RideLedger</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        '<div class="login-subtitle">'
-        'Manage your rides, earnings and expenses'
-        '</div>',
-        unsafe_allow_html=True
+    st.caption(
+        "Manage your rides, earnings and expenses in one place."
     )
 
     login_tab, signup_tab = st.tabs(
         ["🔐 Login", "✨ Create Account"]
     )
+
 
     # -----------------------------------------------------
     # LOGIN
@@ -248,7 +133,7 @@ if not st.session_state.logged_in:
 
     with login_tab:
 
-        st.markdown("### Welcome back 👋")
+        st.subheader("Welcome back 👋")
 
         login_email = st.text_input(
             "Email",
@@ -321,13 +206,14 @@ if not st.session_state.logged_in:
                         f"Login failed: {e}"
                     )
 
+
     # -----------------------------------------------------
     # SIGNUP
     # -----------------------------------------------------
 
     with signup_tab:
 
-        st.markdown("### Create your account 🚀")
+        st.subheader("Create your account 🚀")
 
         signup_username = st.text_input(
             "Username",
@@ -403,8 +289,7 @@ if not st.session_state.logged_in:
                                 "password": signup_password,
                                 "options": {
                                     "data": {
-                                        "username":
-                                            signup_username
+                                        "username": signup_username
                                     }
                                 }
                             }
@@ -455,11 +340,11 @@ if not st.session_state.logged_in:
                         f"Signup failed: {e}"
                     )
 
-    st.markdown(
-        '<div class="footer">'
-        '🔒 Your ride data is protected by Supabase.'
-        '</div>',
-        unsafe_allow_html=True
+
+    st.divider()
+
+    st.caption(
+        "🔒 Your ride data is protected by Supabase."
     )
 
     st.stop()
@@ -491,17 +376,19 @@ if user:
 # SIDEBAR
 # =========================================================
 
-# =========================================================
-# SIDEBAR
-# =========================================================
-
 with st.sidebar:
 
     st.title("🚗 RideLedger")
 
     st.divider()
 
-    st.write(f"Hello, {username}")
+    st.write(f"### 👋 Hello, {username}")
+
+    st.caption(
+        user.email if user else ""
+    )
+
+    st.divider()
 
     page = st.radio(
         "Navigation",
@@ -510,12 +397,16 @@ with st.sidebar:
             "➕ Add Ride",
             "📋 Ride History",
             "📊 Reports"
-        ]
+        ],
+        label_visibility="collapsed"
     )
 
     st.divider()
 
-    if st.button("🚪 Logout"):
+    if st.button(
+        "🚪 Logout",
+        use_container_width=True
+    ):
 
         try:
             supabase.auth.sign_out()
@@ -529,9 +420,6 @@ with st.sidebar:
 
         st.rerun()
 
-# =========================================================
-# HEADER
-# =========================================================
 
 # =========================================================
 # HEADER
@@ -539,7 +427,9 @@ with st.sidebar:
 
 st.title("🚗 RideLedger")
 
-st.subheader(f"Welcome back, {username} 👋")
+st.subheader(
+    f"Welcome back, {username} 👋"
+)
 
 st.caption(
     "Track your rides, earnings and expenses in one place."
@@ -548,63 +438,6 @@ st.caption(
 st.write("")
 
 
-# =========================================================
-# QUICK OVERVIEW
-# =========================================================
-
-if rides:
-
-    df = pd.DataFrame(rides)
-
-    total_rides = len(df)
-
-    total_distance = df["distance_covered"].sum()
-
-    total_received = df["received_amount"].sum()
-
-    total_net = df["net_amount"].sum()
-
-    total_saving = df["saving"].sum()
-
-    c1, c2, c3, c4 = st.columns(4)
-
-    with c1:
-        st.metric(
-            "🚗 Total Rides",
-            f"{total_rides:,}"
-        )
-
-    with c2:
-        st.metric(
-            "🛣️ Distance",
-            f"{total_distance:,.1f} km"
-        )
-
-    with c3:
-        st.metric(
-            "💰 Earnings",
-            f"Rs {total_received:,.0f}"
-        )
-
-    with c4:
-        st.metric(
-            "📈 Savings",
-            f"Rs {total_saving:,.0f}"
-        )
-
-    st.write("")
-
-    st.info(
-        "💡 Keep adding your rides to build a complete "
-        "picture of your earnings, expenses and savings."
-    )
-
-else:
-
-    st.info(
-        "🚗 Welcome to RideLedger! "
-        "Add your first ride to start tracking your earnings."
-    )
 # =========================================================
 # LOAD RIDES
 # =========================================================
@@ -638,12 +471,7 @@ except Exception as e:
 
 if page == "🏠 Dashboard":
 
-    st.markdown(
-        '<div class="section-title">'
-        '📊 Dashboard'
-        '</div>',
-        unsafe_allow_html=True
-    )
+    st.header("📊 Dashboard")
 
     if rides:
 
@@ -671,6 +499,7 @@ if page == "🏠 Dashboard":
             "saving"
         ].sum()
 
+
         # -------------------------------------------------
         # TOP CARDS
         # -------------------------------------------------
@@ -679,120 +508,60 @@ if page == "🏠 Dashboard":
 
         with c1:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        🚗 Total Rides
-                    </div>
-
-                    <div class="card-value">
-                        {total_rides:,}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "🚗 Total Rides",
+                f"{total_rides:,}"
             )
 
         with c2:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        🛣️ Total Distance
-                    </div>
-
-                    <div class="card-value">
-                        {total_distance:,.1f} km
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "🛣️ Total Distance",
+                f"{total_distance:,.1f} km"
             )
 
         with c3:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        💰 Total Received
-                    </div>
-
-                    <div class="card-value">
-                        Rs {total_received:,.0f}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "💰 Total Received",
+                f"Rs {total_received:,.0f}"
             )
 
+
         st.write("")
+
 
         c1, c2, c3 = st.columns(3)
 
         with c1:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        💵 Net Amount
-                    </div>
-
-                    <div class="card-value">
-                        Rs {total_net:,.0f}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "💵 Net Amount",
+                f"Rs {total_net:,.0f}"
             )
 
         with c2:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        ⛽ Fuel Cost
-                    </div>
-
-                    <div class="card-value">
-                        Rs {total_fuel:,.0f}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "⛽ Fuel Cost",
+                f"Rs {total_fuel:,.0f}"
             )
 
         with c3:
 
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-label">
-                        📈 Total Saving
-                    </div>
-
-                    <div class="card-value">
-                        Rs {total_saving:,.0f}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
+            st.metric(
+                "📈 Total Saving",
+                f"Rs {total_saving:,.0f}"
             )
+
 
         # -------------------------------------------------
         # RECENT RIDES
         # -------------------------------------------------
 
-        st.markdown(
-            '<div class="section-title">'
-            '🕐 Recent Rides'
-            '</div>',
-            unsafe_allow_html=True
-        )
+        st.divider()
+
+        st.subheader("🕐 Recent Rides")
 
         recent = df.head(5)
 
@@ -832,19 +601,11 @@ if page == "🏠 Dashboard":
 
 elif page == "➕ Add Ride":
 
-    st.markdown(
-        '<div class="section-title">'
-        '➕ Add New Ride'
-        '</div>',
-        unsafe_allow_html=True
-    )
+    st.header("➕ Add New Ride")
 
-    st.markdown(
-        '<div class="section-text">'
-        'Enter your ride details below. '
-        'RideLedger will calculate your earnings automatically.'
-        '</div>',
-        unsafe_allow_html=True
+    st.caption(
+        "Enter your ride details below. "
+        "RideLedger will calculate your earnings automatically."
     )
 
     with st.form("ride_form"):
@@ -918,6 +679,7 @@ elif page == "➕ Add Ride":
             type="primary",
             use_container_width=True
         )
+
 
     # -----------------------------------------------------
     # SAVE RIDE
@@ -1032,12 +794,7 @@ elif page == "➕ Add Ride":
 
 elif page == "📋 Ride History":
 
-    st.markdown(
-        '<div class="section-title">'
-        '📋 Ride History'
-        '</div>',
-        unsafe_allow_html=True
-    )
+    st.header("📋 Ride History")
 
     if rides:
 
@@ -1075,12 +832,10 @@ elif page == "📋 Ride History":
             hide_index=True
         )
 
-        st.markdown(
-            '<div class="section-title">'
-            '🗑️ Delete a Ride'
-            '</div>',
-            unsafe_allow_html=True
-        )
+
+        st.divider()
+
+        st.subheader("🗑️ Delete a Ride")
 
         ride_options = {}
 
@@ -1095,10 +850,12 @@ elif page == "📋 Ride History":
 
             ride_options[label] = ride["id"]
 
+
         selected_ride = st.selectbox(
             "Select ride",
             list(ride_options.keys())
         )
+
 
         if st.button(
             "🗑️ Delete Selected Ride"
@@ -1144,27 +901,18 @@ elif page == "📋 Ride History":
 
 elif page == "📊 Reports":
 
-    st.markdown(
-        '<div class="section-title">'
-        '📊 Reports & Analytics'
-        '</div>',
-        unsafe_allow_html=True
-    )
+    st.header("📊 Reports & Analytics")
 
     if rides:
 
         df = pd.DataFrame(rides)
 
+
         # -------------------------------------------------
         # OVERALL
         # -------------------------------------------------
 
-        st.markdown(
-            '<div class="section-title">'
-            '💰 Overall Summary'
-            '</div>',
-            unsafe_allow_html=True
-        )
+        st.subheader("💰 Overall Summary")
 
         total_rides = len(df)
 
@@ -1192,6 +940,7 @@ elif page == "📊 Reports":
             "saving"
         ].sum()
 
+
         c1, c2, c3, c4 = st.columns(4)
 
         c1.metric(
@@ -1214,6 +963,7 @@ elif page == "📊 Reports":
             f"Rs {total_deduction:,.2f}"
         )
 
+
         c1, c2, c3 = st.columns(3)
 
         c1.metric(
@@ -1231,16 +981,14 @@ elif page == "📊 Reports":
             f"Rs {total_saving:,.2f}"
         )
 
+
         # -------------------------------------------------
         # DAILY
         # -------------------------------------------------
 
-        st.markdown(
-            '<div class="section-title">'
-            '📅 Daily Summary'
-            '</div>',
-            unsafe_allow_html=True
-        )
+        st.divider()
+
+        st.subheader("📅 Daily Summary")
 
         daily = (
             df.groupby("ride_date")
@@ -1262,16 +1010,12 @@ elif page == "📊 Reports":
             hide_index=True
         )
 
+
         # -------------------------------------------------
         # MONTHLY
         # -------------------------------------------------
 
-        st.markdown(
-            '<div class="section-title">'
-            '📆 Monthly Summary'
-            '</div>',
-            unsafe_allow_html=True
-        )
+        st.subheader("📆 Monthly Summary")
 
         monthly_df = df.copy()
 
@@ -1305,23 +1049,19 @@ elif page == "📊 Reports":
             hide_index=True
         )
 
+
         # -------------------------------------------------
         # EXCEL
         # -------------------------------------------------
 
-        st.markdown(
-            '<div class="section-title">'
-            '📥 Export'
-            '</div>',
-            unsafe_allow_html=True
-        )
+        st.subheader("📥 Export")
 
         output = BytesIO()
 
         with pd.ExcelWriter(
             output,
             engine="openpyxl"
-        ) as writer:
+        ):
 
             df.to_excel(
                 writer,
@@ -1363,11 +1103,8 @@ elif page == "📊 Reports":
 # FOOTER
 # =========================================================
 
-st.markdown(
-    """
-    <div class="footer">
-        🚗 RideLedger • Smart ride tracking and reporting
-    </div>
-    """,
-    unsafe_allow_html=True
+st.divider()
+
+st.caption(
+    "🚗 RideLedger • Smart ride tracking and reporting"
 )
