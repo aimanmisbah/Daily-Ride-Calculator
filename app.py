@@ -21,7 +21,7 @@ st.set_page_config(
 # =========================================================
 
 # =========================================================
-# CUSTOM DESIGN - 3D MODERN THEME
+# CUSTOM DESIGN - CLEAN PREMIUM THEME
 # =========================================================
 
 st.markdown(
@@ -29,83 +29,89 @@ st.markdown(
     <style>
 
     /* =====================================================
-       GLOBAL
+       MAIN BACKGROUND
        ===================================================== */
 
     .stApp {
         background:
-            radial-gradient(
-                circle at 10% 10%,
-                rgba(30, 100, 180, 0.18),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 90% 20%,
-                rgba(100, 50, 180, 0.15),
-                transparent 30%
-            ),
-            #07111f;
+            linear-gradient(
+                135deg,
+                #f5f9ff 0%,
+                #eef5ff 45%,
+                #f8fbff 100%
+            );
     }
 
-    /* Main content */
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 3rem;
         max-width: 1400px;
     }
 
+
     /* =====================================================
        SIDEBAR
        ===================================================== */
 
     section[data-testid="stSidebar"] {
+
         background:
             linear-gradient(
                 180deg,
-                #0b1728 0%,
-                #08111f 55%,
-                #050b14 100%
+                #ffffff 0%,
+                #f4f8ff 100%
             );
 
-        border-right: 1px solid rgba(255,255,255,0.08);
+        border-right:
+            1px solid #dce7f5;
 
         box-shadow:
-            8px 0 30px rgba(0,0,0,0.35);
+            5px 0 25px rgba(44, 83, 130, 0.08);
     }
 
     section[data-testid="stSidebar"] .block-container {
         padding-top: 1.5rem;
     }
 
+
     /* =====================================================
        HEADINGS
        ===================================================== */
 
     h1 {
-        font-size: 3rem !important;
+        color: #163a63 !important;
+
+        font-size: 2.8rem !important;
+
         font-weight: 800 !important;
+
         letter-spacing: -1px;
-        background:
-            linear-gradient(
-                90deg,
-                #ffffff,
-                #70b7ff,
-                #a98bff
-            );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
     h2 {
+        color: #193f68 !important;
+
         font-weight: 750 !important;
     }
 
     h3 {
+        color: #234b73 !important;
+
         font-weight: 700 !important;
     }
 
+
     /* =====================================================
-       METRIC CARDS
+       NORMAL TEXT
+       ===================================================== */
+
+    p {
+        color: #52677e;
+    }
+
+
+    /* =====================================================
+       METRIC CARDS - 3D EFFECT
        ===================================================== */
 
     div[data-testid="stMetric"] {
@@ -113,49 +119,66 @@ st.markdown(
         background:
             linear-gradient(
                 145deg,
-                rgba(255,255,255,0.09),
-                rgba(255,255,255,0.025)
+                #ffffff,
+                #f4f8fd
             );
 
-        border: 1px solid rgba(255,255,255,0.10);
+        border:
+            1px solid #dce7f3;
 
-        border-radius: 20px;
+        border-radius:
+            20px;
 
-        padding: 22px;
+        padding:
+            22px;
 
-        min-height: 135px;
+        min-height:
+            135px;
 
         box-shadow:
-            0 10px 25px rgba(0,0,0,0.35),
-            inset 0 1px 1px rgba(255,255,255,0.08);
+            0 8px 18px rgba(43, 82, 125, 0.10),
+            0 2px 4px rgba(43, 82, 125, 0.06);
 
         transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
+            all 0.25s ease;
     }
+
 
     div[data-testid="stMetric"]:hover {
 
         transform:
-            translateY(-6px)
-            scale(1.015);
+            translateY(-5px);
 
         box-shadow:
-            0 18px 40px rgba(0,0,0,0.45),
-            0 0 25px rgba(70,140,255,0.12);
+            0 16px 30px rgba(43, 82, 125, 0.16);
     }
+
 
     div[data-testid="stMetricLabel"] {
-        font-size: 0.9rem !important;
-        color: #9eb1c9 !important;
-        font-weight: 600 !important;
+
+        color:
+            #66809b !important;
+
+        font-size:
+            0.9rem !important;
+
+        font-weight:
+            650 !important;
     }
 
+
     div[data-testid="stMetricValue"] {
-        font-size: 2rem !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
+
+        color:
+            #164a7a !important;
+
+        font-size:
+            2rem !important;
+
+        font-weight:
+            800 !important;
     }
+
 
     /* =====================================================
        BUTTONS
@@ -163,70 +186,88 @@ st.markdown(
 
     .stButton > button {
 
-        border: 1px solid rgba(255,255,255,0.10);
+        border:
+            1px solid #c7dbf2;
 
-        border-radius: 14px;
+        border-radius:
+            12px;
 
         background:
             linear-gradient(
                 145deg,
-                #2478e8,
-                #1554ad
+                #ffffff,
+                #edf5ff
             );
 
-        color: white;
+        color:
+            #17558c;
 
-        font-weight: 700;
-
-        padding: 0.65rem 1rem;
+        font-weight:
+            700;
 
         box-shadow:
-            0 7px 18px rgba(21,84,173,0.35),
-            inset 0 1px 1px rgba(255,255,255,0.20);
+            0 5px 12px rgba(50, 100, 150, 0.10);
 
         transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
+            all 0.2s ease;
     }
+
 
     .stButton > button:hover {
 
-        transform:
-            translateY(-3px);
-
-        box-shadow:
-            0 12px 28px rgba(21,84,173,0.50);
+        background:
+            linear-gradient(
+                145deg,
+                #edf6ff,
+                #dcecff
+            );
 
         border-color:
-            rgba(255,255,255,0.25);
+            #9fc5eb;
+
+        color:
+            #0d477d;
+
+        transform:
+            translateY(-2px);
+
+        box-shadow:
+            0 9px 18px rgba(50, 100, 150, 0.15);
     }
 
+
     /* =====================================================
-       INPUT BOXES
+       INPUT FIELDS
        ===================================================== */
 
     input,
     textarea,
     div[data-baseweb="select"] > div {
 
-        border-radius: 12px !important;
+        border-radius:
+            11px !important;
 
         background:
-            rgba(255,255,255,0.055) !important;
+            #ffffff !important;
 
         border:
-            1px solid rgba(255,255,255,0.10) !important;
+            1px solid #d3e0ed !important;
+
+        color:
+            #203d59 !important;
     }
+
 
     input:focus,
     textarea:focus {
 
         border-color:
-            #3287f5 !important;
+            #4d96dc !important;
 
         box-shadow:
-            0 0 0 2px rgba(50,135,245,0.15) !important;
+            0 0 0 2px rgba(77,150,220,0.12) !important;
     }
+
 
     /* =====================================================
        DATAFRAME
@@ -234,16 +275,19 @@ st.markdown(
 
     div[data-testid="stDataFrame"] {
 
-        border-radius: 18px;
+        border-radius:
+            18px;
 
-        overflow: hidden;
+        overflow:
+            hidden;
 
         border:
-            1px solid rgba(255,255,255,0.08);
+            1px solid #d9e5f1;
 
         box-shadow:
-            0 12px 30px rgba(0,0,0,0.30);
+            0 8px 20px rgba(45, 80, 115, 0.08);
     }
+
 
     /* =====================================================
        EXPANDERS
@@ -252,64 +296,18 @@ st.markdown(
     div[data-testid="stExpander"] {
 
         border:
-            1px solid rgba(255,255,255,0.08) !important;
+            1px solid #dce7f2 !important;
 
         border-radius:
             16px !important;
 
         background:
-            rgba(255,255,255,0.035);
+            rgba(255,255,255,0.80);
 
         box-shadow:
-            0 8px 25px rgba(0,0,0,0.20);
+            0 6px 16px rgba(45, 80, 115, 0.07);
     }
 
-    /* =====================================================
-       DIVIDERS
-       ===================================================== */
-
-    hr {
-
-        border: none !important;
-
-        height: 1px;
-
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.18),
-                transparent
-            );
-    }
-
-    /* =====================================================
-       SIDEBAR RADIO
-       ===================================================== */
-
-    section[data-testid="stSidebar"]
-    div[role="radiogroup"] label {
-
-        border-radius: 12px;
-
-        padding: 9px 12px;
-
-        margin: 4px 0;
-
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    section[data-testid="stSidebar"]
-    div[role="radiogroup"] label:hover {
-
-        background:
-            rgba(255,255,255,0.07);
-
-        transform:
-            translateX(3px);
-    }
 
     /* =====================================================
        ALERTS
@@ -317,14 +315,73 @@ st.markdown(
 
     div[data-testid="stAlert"] {
 
-        border-radius: 15px !important;
+        border-radius:
+            14px !important;
 
         border:
-            1px solid rgba(255,255,255,0.08) !important;
+            1px solid #d7e4f0 !important;
 
         box-shadow:
-            0 8px 20px rgba(0,0,0,0.20);
+            0 5px 15px rgba(45, 80, 115, 0.06);
     }
+
+
+    /* =====================================================
+       SIDEBAR NAVIGATION
+       ===================================================== */
+
+    section[data-testid="stSidebar"]
+    div[role="radiogroup"] label {
+
+        border-radius:
+            12px;
+
+        padding:
+            10px 12px;
+
+        margin:
+            5px 0;
+
+        color:
+            #385673;
+
+        transition:
+            all 0.2s ease;
+    }
+
+
+    section[data-testid="stSidebar"]
+    div[role="radiogroup"] label:hover {
+
+        background:
+            #eaf3ff;
+
+        transform:
+            translateX(3px);
+    }
+
+
+    /* =====================================================
+       DIVIDER
+       ===================================================== */
+
+    hr {
+
+        border:
+            none !important;
+
+        height:
+            1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                #cbdceb,
+                transparent
+            );
+    }
+
 
     /* =====================================================
        FILE UPLOADER
@@ -332,20 +389,43 @@ st.markdown(
 
     section[data-testid="stFileUploaderDropzone"] {
 
-        border-radius: 16px;
+        border-radius:
+            15px;
 
         background:
-            rgba(255,255,255,0.035);
+            #ffffff;
 
         border:
-            1px dashed rgba(255,255,255,0.18);
+            1px dashed #b9cee3;
     }
+
+
+    /* =====================================================
+       SELECTBOX / DROPDOWN
+       ===================================================== */
+
+    div[data-baseweb="select"] {
+
+        border-radius:
+            11px;
+    }
+
+
+    /* =====================================================
+       CHECKBOX
+       ===================================================== */
+
+    div[data-testid="stCheckbox"] {
+
+        color:
+            #365775;
+    }
+
 
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # =========================================================
 # SUPABASE
 # =========================================================
