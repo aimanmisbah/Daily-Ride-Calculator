@@ -146,27 +146,27 @@ c1, c2, c3, c4, c5 = st.columns(5)
 
 c1.metric(
     "Total Deduction",
-    f"₹{total_deduction:,.2f}"
+    f"Rs{total_deduction:,.2f}"
 )
 
 c2.metric(
     "Net Amount",
-    f"₹{net_amount:,.2f}"
+    f"Rs{net_amount:,.2f}"
 )
 
 c3.metric(
     "Rate / Km",
-    f"₹{rate_per_km:,.2f}"
+    f"Rs{rate_per_km:,.2f}"
 )
 
 c4.metric(
     "Fuel Amount",
-    f"₹{fuel_amount:,.2f}"
+    f"Rs{fuel_amount:,.2f}"
 )
 
 c5.metric(
     "Saving",
-    f"₹{saving:,.2f}"
+    f"Rs{saving:,.2f}"
 )
 
 
