@@ -533,25 +533,12 @@ with st.sidebar:
 # HEADER
 # =========================================================
 
-st.markdown(
-    f"""
-    <div class="hero">
+st.title("🚗 RideLedger")
 
-        <div class="hero-title">
-            🚗 RideLedger
-        </div>
-
-        <div class="hero-text">
-            Welcome back, <strong>{username}</strong>.
-            Track your rides, earnings and expenses
-            in one place.
-        </div>
-
-    </div>
-    """,
-    unsafe_allow_html=True
+st.caption(
+    f"Welcome back, {username}. "
+    "Track your rides, earnings and expenses in one place."
 )
-
 
 # =========================================================
 # LOAD RIDES
