@@ -85,7 +85,7 @@ with col3:
 
     fuel_consumption = st.number_input(
         "Fuel Consumption (km/L)",
-        min_value=0.1,
+        min_value=0.0,
         step=0.1
     )
 
