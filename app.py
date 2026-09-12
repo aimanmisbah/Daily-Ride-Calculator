@@ -491,38 +491,17 @@ if user:
 # SIDEBAR
 # =========================================================
 
+# =========================================================
+# SIDEBAR
+# =========================================================
+
 with st.sidebar:
 
-    st.markdown(
-        """
-        <div style="
-            text-align:center;
-            padding:15px 0 10px 0;
-        ">
-            <div style="font-size:48px;">🚗</div>
-
-            <div style="
-                font-size:25px;
-                font-weight:800;
-            ">
-                RideLedger
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.title("🚗 RideLedger")
 
     st.divider()
 
-    st.markdown(
-        f"### 👋 Hello, {username}"
-    )
-
-    st.caption(
-        user.email if user else ""
-    )
-
-    st.divider()
+    st.write(f"Hello, {username}")
 
     page = st.radio(
         "Navigation",
@@ -531,16 +510,12 @@ with st.sidebar:
             "➕ Add Ride",
             "📋 Ride History",
             "📊 Reports"
-        ],
-        label_visibility="collapsed"
+        ]
     )
 
     st.divider()
 
-    if st.button(
-        "🚪 Logout",
-        use_container_width=True
-    ):
+    if st.button("🚪 Logout"):
 
         try:
             supabase.auth.sign_out()
@@ -553,7 +528,6 @@ with st.sidebar:
         st.session_state.refresh_token = None
 
         st.rerun()
-
 
 # =========================================================
 # HEADER
