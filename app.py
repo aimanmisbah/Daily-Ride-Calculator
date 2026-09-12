@@ -389,29 +389,29 @@ if rides:
 
     c3.metric(
         "Total Received",
-        f"₹{total_received:,.2f}"
+        f"Rs{total_received:,.2f}"
     )
 
     c4.metric(
         "Total Deduction",
-        f"₹{total_deduction:,.2f}"
+        f"Rs{total_deduction:,.2f}"
     )
 
     c1, c2, c3 = st.columns(3)
 
     c1.metric(
         "Total Net Amount",
-        f"₹{total_net:,.2f}"
+        f"Rs{total_net:,.2f}"
     )
 
     c2.metric(
         "Total Fuel Amount",
-        f"₹{total_fuel:,.2f}"
+        f"Rs{total_fuel:,.2f}"
     )
 
     c3.metric(
         "Total Saving",
-        f"₹{total_saving:,.2f}"
+        f"Rs{total_saving:,.2f}"
     )
 
 
